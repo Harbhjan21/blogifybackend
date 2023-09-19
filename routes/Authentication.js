@@ -61,9 +61,9 @@ routes.get("/userprofile", Authverifycation, async (req, res) => {
 
     console.log("user", user);
 
-    res.send({ success: true, user });
+    res.json({ success: true, user });
   } catch (error) {
-    res.send({ success: false, error });
+    res.json({ success: false, error });
   }
 });
 

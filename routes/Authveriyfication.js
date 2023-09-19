@@ -5,11 +5,11 @@ const Authverifycation = async (req, res, next) => {
   console.log("token", token);
   try {
     if (!token) {
-      res.send({ success: false, error: "invalid token" });
+      res.json({ success: false, error: "invalid token" });
     } else {
       jwt.verify(token, S_KEY, (err, data) => {
         if (err) {
-          res.send({ success: false, error: "invalid token" });
+          res.json({ success: false, error: "invalid token" });
         } else {
           req.body.userdata = data;
           next();
@@ -17,7 +17,7 @@ const Authverifycation = async (req, res, next) => {
       });
     }
   } catch (error) {
-    res.send({ success: false, error });
+    res.json({ success: false, error });
   }
 };
 

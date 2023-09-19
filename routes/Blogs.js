@@ -36,9 +36,9 @@ routes.post("/create", Authverifycation, async (req, res) => {
     }
 
     console.log("blog", blog);
-    res.send({ success: true, blog });
+    res.json({ success: true, blog });
   } catch (error) {
-    res.send({ success: false, error });
+    res.json({ success: false, error });
   }
 });
 routes.post("/update", Authverifycation, async (req, res) => {
@@ -51,9 +51,9 @@ routes.post("/update", Authverifycation, async (req, res) => {
       { new: true }
     );
     console.log("updateblog", blog);
-    res.send({ success: true, blog });
+    res.json({ success: true, blog });
   } catch (error) {
-    res.send({ success: false, error });
+    res.json({ success: false, error });
   }
 });
 routes.get("/userblogs", Authverifycation, async (req, res) => {
@@ -62,9 +62,9 @@ routes.get("/userblogs", Authverifycation, async (req, res) => {
 
     const blog = await Blog.find({ userId: userdata.user.id });
     console.log("userblog", blog);
-    res.send({ success: true, blog });
+    res.json({ success: true, blog });
   } catch (error) {
-    res.send({ success: false, error });
+    res.json({ success: false, error });
   }
 });
 routes.post("/getBlog", Authverifycation, async (req, res) => {
@@ -73,18 +73,18 @@ routes.post("/getBlog", Authverifycation, async (req, res) => {
 
     const blog = await Blog.findById(id);
     console.log("userblog", blog);
-    res.send({ success: true, blog });
+    res.json({ success: true, blog });
   } catch (error) {
-    res.send({ success: false, error });
+    res.json({ success: false, error });
   }
 });
 routes.get("/allBlogs", async (req, res) => {
   try {
     const blog = await Blog.find({ public: true }).sort({ createdAt: -1 });
     console.log("allblogs", blog);
-    res.send({ success: true, blog });
+    res.json({ success: true, blog });
   } catch (error) {
-    res.send({ success: false, error });
+    res.json({ success: false, error });
   }
 });
 routes.post("/delete", Authverifycation, async (req, res) => {
@@ -106,9 +106,9 @@ routes.post("/delete", Authverifycation, async (req, res) => {
       }
     );
 
-    res.send({ success: true, blog });
+    res.json({ success: true, blog });
   } catch (error) {
-    res.send({ success: false, error });
+    res.json({ success: false, error });
   }
 });
 module.exports = routes;
