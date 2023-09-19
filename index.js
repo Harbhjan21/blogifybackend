@@ -21,7 +21,10 @@ mongoose
     useUnifiedTopology: true,
   })
   .then((err) => {
-    if (!err) console.log("mongodb connected");
+    console.log("mongodb connected");
+  })
+  .catch((err) => {
+    console.log("error", err);
   });
 
 app.listen(5000, (err) => {
