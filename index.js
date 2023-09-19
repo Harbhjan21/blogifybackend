@@ -16,10 +16,7 @@ app.use("/auth", require("./routes/Authentication"));
 app.use("/blogs", require("./routes/Blogs"));
 
 mongoose
-  .connect(MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(MONGO_URL)
   .then((err) => {
     console.log("mongodb connected");
   })
