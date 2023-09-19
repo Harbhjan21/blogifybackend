@@ -20,14 +20,12 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => {
-    console.log("mongodb connected");
-    app.listen(5000, (err) => {
-      if (!err) {
-        console.log("server is listening at 5000");
-      }
-    });
-  })
-  .catch((err) => {
-    if (err) console.log("connection failed ", err);
+  .then((err) => {
+    if (!err) console.log("mongodb connected");
   });
+
+app.listen(5000, (err) => {
+  if (!err) {
+    console.log("server is listening at 5000");
+  }
+});
