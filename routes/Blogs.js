@@ -1,8 +1,8 @@
 const routes = require("express").Router();
 const User = require("../Schema/Auth");
-const bcrypt = require("bcrypt");
+
 const Authverifycation = require("./Authveriyfication");
-const jwt = require("jsonwebtoken");
+
 const Blog = require("../Schema/Blogs");
 
 const S_KEY = "blogify";
